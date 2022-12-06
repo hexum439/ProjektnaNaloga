@@ -1,0 +1,23 @@
+﻿@model List<KategorijeOblacila>
+@{
+	ViewData["Title"] = "List of Oblacila";
+}
+
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+		<table class="table">
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td class="align-middle">
+							<a asp-area="" asp-controller="MoskeKategorije" asp-action="Details" asp-route-id="@item.ID">
+							@Html.DisplayFor(modelItem => item.ImeKategorije)
+							</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
