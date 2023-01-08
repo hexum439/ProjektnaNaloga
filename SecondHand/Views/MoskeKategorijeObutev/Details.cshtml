@@ -1,4 +1,4 @@
-﻿@model List<Obutev>
+﻿@model IEnumerable<SecondHand.Models.moskiobutveskupnimodel>
 @{
 	ViewData["Title"] = "List of Oblacila";
 }
@@ -11,6 +11,8 @@
 					<th>Znamka</th>
 					<th>Slika</th>
 					<th>Opis</th>
+					<th>Telefonska številka</th>
+					<th>Lokacija</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -18,14 +20,24 @@
 				{
 						<tr>
 							<td class="align-middle">
-							@Html.DisplayFor(modelItem => item.ImeCevlja)
+
+							@Html.DisplayFor(modelItem => item.obutvepodatki.ImeCevlja)
 							</td>
 							<td class="align-middle">
-								<img class="rounded-circle" src="@item.SlikaCevljaUrl" alt="@item.ImeCevlja" style="max-width:150px">
+								<a asp-area="" asp-controller="MoskeKategorijeObutev" asp-action="DetailsProdukta" asp-route-id="@item.obutvepodatki.Id">
+								<img class="rounded-circle" src="@item.obutvepodatki.SlikaCevljaUrl" alt="@item.obutvepodatki.ImeCevlja" style="max-width:150px">
+								</a>
 							</td>
 							<td class="align-middle">
-							@Html.DisplayFor(modelItem => item.opis)
+							@Html.DisplayFor(modelItem => item.obutvepodatki.opis)
 							</td>
+								<td class="align-middle">
+							@Html.DisplayFor(modelItem => item.uporabnikpodatki.PhoneNumber)
+								</td>
+						<td class="align-middle">
+							@Html.DisplayFor(modelItem => item.uporabnikpodatki.City)
+						</td>
+						
 						</tr>
 				}
 			</tbody>

@@ -1,0 +1,83 @@
+@model IEnumerable<SecondHand.Models.skupnimodelcevlji>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.ImeCevlja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.SlikaCevljaUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.StCevlja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.znamka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkiobutev.cena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.podatkikategorijecevlji.ImeKategorije)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.ImeCevlja)
+            </td>
+            <td>
+                    <img src="@item.podatkiobutev.SlikaCevljaUrl" width="100">
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.StCevlja)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.opis)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.znamka)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.DateCreated)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.owner.FirstName)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.podatkiobutev.cena)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.podatkikategorijecevlji.ImeKategorije)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.podatkiobutev.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.podatkiobutev.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.podatkiobutev.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

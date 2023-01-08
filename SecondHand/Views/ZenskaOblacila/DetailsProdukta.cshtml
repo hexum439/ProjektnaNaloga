@@ -1,0 +1,7 @@
+﻿@model IEnumerable<SecondHand.Models.moskioblacilaskupnimodel>
+@foreach (var item in Model)
+{
+	<p>@item.oblacilapodatki.ImeOblacila</p>
+	<img src="@item.oblacilapodatki.SlikaOblekeUrl" width="500">
+	<p>@item.uporabnikpodatki.FirstName</p>
+}

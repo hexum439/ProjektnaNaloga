@@ -1,34 +1,64 @@
-﻿@model List<Oblacila>
+﻿@model IEnumerable<SecondHand.Models.moskioblacilaskupnimodel>
 @{
-	ViewData["Title"] = "List of Oblacila";
+    ViewData["Title"] = "List of Oblacila";
 }
 
 <div class="row">
-	<div class="col-md-8 offset-md-2">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Znamka</th>
-					<th>Slika</th>
-					<th>Opis</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach (var item in Model)
-				{
-					<tr>
-						<td class="align-middle">
-							@Html.DisplayFor(modelItem => item.ImeOblacila)
-						</td>
-						<td class="align-middle">
-							<img class="rounded-circle" src="@item.SlikaOblekeUrl" alt="@item.ImeOblacila" style="max-width:150px">
-						</td>
-						<td class="align-middle">
-							@Html.DisplayFor(modelItem => item.opis)
-						</td>
-					</tr>
-				}
-			</tbody>
-		</table>
-	</div>
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-xs-6 border-primary mb-3">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-12">
+                                    <div class="card-header text-white bg-info">
+                                        <p class="card-text">
+                                            <h5 class="card-title">
+                                                @item.oblacilapodatki.ImeOblacila
+
+                                            </h5>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ZenskaOblacila" asp-action="DetailsProdukta" asp-route-id="@item.oblacilapodatki.Id">
+                                        <img src="@item.oblacilapodatki.SlikaOblekeUrl" width="100%" alt="@item.oblacilapodatki.ImeOblacila">
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <p class="card-text">@item.oblacilapodatki.opis</p>
+
+                                        <p class="card-text"><b>Phone: </b> @item.uporabnikpodatki.PhoneNumber</p>
+
+                                        <p class="card-text"><b>City: </b> @item.uporabnikpodatki.City</p>
+
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="col-md-12">
+                                    <div class="card-footer ">
+                                        <p class="card-text">
+                                            <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="item.Id">
+                                                <i class="bi bi-eye-fill"></i> Show Details
+                                            </a>
+                                            <a class="btn btn-success text-white ((DateTime.Now > item.EndDate) ? "disabled" : "")"
+                                           asp-controller="Orders"
+                                           asp-action="AddItemToShoppingCart"
+                                           asp-route-id="item.Id">
+                                                <i class="bi bi-cart-plus"></i> Add to Cart (Price item.Price.ToString("c"))
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

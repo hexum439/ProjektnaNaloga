@@ -1,0 +1,61 @@
+@model SecondHand.Models.Obutev
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Obutev</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ImeCevlja" class="control-label"></label>
+                <input asp-for="ImeCevlja" class="form-control" />
+                <span asp-validation-for="ImeCevlja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SlikaCevljaUrl" class="control-label"></label>
+                <input asp-for="SlikaCevljaUrl" class="form-control" />
+                <span asp-validation-for="SlikaCevljaUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StCevlja" class="control-label"></label>
+                <input asp-for="StCevlja" class="form-control" />
+                <span asp-validation-for="StCevlja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="opis" class="control-label"></label>
+                <input asp-for="opis" class="form-control" />
+                <span asp-validation-for="opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="znamka" class="control-label"></label>
+                <input asp-for="znamka" class="form-control" />
+                <span asp-validation-for="znamka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cena" class="control-label"></label>
+                <input asp-for="cena" class="form-control" />
+                <span asp-validation-for="cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KategorijaId" class="control-label"></label>
+                <select asp-for="KategorijaId" class="form-control" asp-items="ViewBag.KategorijaId"></select>
+                <span asp-validation-for="KategorijaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

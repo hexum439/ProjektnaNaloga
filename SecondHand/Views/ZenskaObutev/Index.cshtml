@@ -1,6 +1,6 @@
 ﻿@model List<KategorijeCevlji>
 @{
-	ViewData["Title"] = "List of Oblacila";
+	ViewData["Title"] = "List of Cevlji";
 }
 
 <div class="row">
@@ -9,13 +9,13 @@
 			<tbody>
 				@foreach (var item in Model)
 				{
-							<tr>
-								<td class="align-middle">
-									<a asp-area="" asp-controller="ZenskaObutev" asp-action="Details" asp-route-id="@item.ID">
+					<tr>
+						<td class="align-middle">
+							<a asp-area="" asp-controller="ZenskaObutev" asp-action="Details" asp-route-id="@item.ID">
 								@Html.DisplayFor(modelItem => item.ImeKategorije)
-									</a>
-								</td>
-							</tr>
+							</a>
+						</td>
+					</tr>
 				}
 			</tbody>
 		</table>
