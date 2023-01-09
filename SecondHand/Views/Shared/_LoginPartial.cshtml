@@ -1,12 +1,38 @@
-@using Microsoft.AspNetCore.Identity
+Ôªø@using Microsoft.AspNetCore.Identity
 @using SecondHand.Models
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+<head>
+<style>
+.klik{
+        background-color: rgb(116, 116, 228);
+        color: white;
+        border-radius: 18px;
+        height: 36px;
+        width: 120px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 15px;
+        transition: box-shadow 0.15s;
+    }
+</style>
+</head>
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    <li>
+            <a id="clothes" class="nav-link text-dark" asp-area="" asp-controller="UserOb" asp-action="Index" asp-route-id=""> 
+                <button class="klik">Moja oblaƒçila</button>
+            </a>
+    </li>
+    <li>
+            <a id="obutev" class="nav-link text-dark" asp-area="" asp-controller="UserObutev" asp-action="Index" asp-route-id=""> 
+                <button class="klik">Moja obutev</button>
+                </a>
+    </li>
     <li class="nav-item">
         <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
     </li>
@@ -15,12 +41,7 @@
             <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
         </form>
     </li>
-    <li>
-            <a id="clothes" class="nav-link text-dark" asp-area="" asp-controller="UserOb" asp-action="Index" asp-route-id=""> Moja oblaËila</a>
-    </li>
-    <li>
-            <a id="obutev" class="nav-link text-dark" asp-area="" asp-controller="UserObutev" asp-action="Index" asp-route-id=""> Moji Ëevlji</a>
-    </li>
+    
 }
 else
 {

@@ -1,10 +1,10 @@
-@model IEnumerable<SecondHand.Models.skupnimodel>
+﻿@model IEnumerable<SecondHand.Models.skupnimodel>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Vaša Oblačila</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,25 +13,23 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.ImeOblacila)
+                <h5>Oblačilo</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.SlikaOblekeUrl)
+                <h5>Slika</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.opis)
+                <h5>Opis</h5>
+            </th>
+         
+            <th>
+                <h5>Cena</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.owner)
+                <h5>Datum zadnje spremembe</h5>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.cena)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.oblacilapodatki.Kategorija)
+                <h5>Kategorija</h5>
             </th>
             <th></th>
         </tr>
@@ -47,9 +45,6 @@
             </td>
             <td>
                     @Html.DisplayFor(modelItem => item.oblacilapodatki.opis)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.oblacilapodatki.owner.FirstName)
             </td>
             <td>
                     @Html.DisplayFor(modelItem => item.oblacilapodatki.cena)
