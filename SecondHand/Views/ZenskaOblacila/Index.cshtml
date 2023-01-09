@@ -11,8 +11,8 @@
 				{
 					<tr>
 						<td class="align-middle">
-							<a asp-area="" asp-controller="ZenskaOblacila" asp-action="Details" asp-route-id="@item.ID">
-							@Html.DisplayFor(modelItem => item.ImeKategorije)
+							<a asp-area="" asp-controller="ZenskaObutev" asp-action="Details" asp-route-id="@item.ID">
+								<p>@item.ImeKategorije.Substring(0, item.ImeKategorije.IndexOf("-"))</p>
 							</a>
 						</td>
 					</tr>

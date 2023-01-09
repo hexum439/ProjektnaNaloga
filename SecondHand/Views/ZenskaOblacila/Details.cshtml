@@ -3,62 +3,58 @@
     ViewData["Title"] = "List of Oblacila";
 }
 
+<head>
+    <style>
+        table {
+            background-color: #F1E3E3;
+            width: 95%;
+        }
+
+        th {
+            background-color: #ADADAD;
+        }
+
+        div.tabela {
+            margin-bottom: 20px;
+        }
+
+        th.cena {
+            background-color: lightblue;
+            width: 15%;
+            text-align: center;
+        }
+
+        td.opis {
+            text-align: center;
+            width: 45%;
+        }
+    </style>
+</head>
 <div class="row">
     <div class="col-md-8 offset-md-2">
-        <table class="table">
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <div class="col-md-4 col-xs-6 border-primary mb-3">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-12">
-                                    <div class="card-header text-white bg-info">
-                                        <p class="card-text">
-                                            <h5 class="card-title">
-                                                @item.oblacilapodatki.ImeOblacila
 
-                                            </h5>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="ZenskaOblacila" asp-action="DetailsProdukta" asp-route-id="@item.oblacilapodatki.Id">
-                                        <img src="@item.oblacilapodatki.SlikaOblekeUrl" width="100%" alt="@item.oblacilapodatki.ImeOblacila">
-                                    </a>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <p class="card-text">@item.oblacilapodatki.opis</p>
+        @foreach (var item in Model)
+        {
+            <div class="tabela">
+                <table>
+                    <th colspan="4" style="text-align:center">@item.oblacilapodatki.ImeOblacila</th>
+                    <tr>
+                        <td style="width;20%">
+                            <img src="@item.oblacilapodatki.SlikaOblekeUrl" width="100px" height="150px" alt="@item.oblacilapodatki.ImeOblacila">
+                        </td>
 
-                                        <p class="card-text"><b>Phone: </b> @item.uporabnikpodatki.PhoneNumber</p>
+                        <td class="opis">@item.oblacilapodatki.opis</td>
 
-                                        <p class="card-text"><b>City: </b> @item.uporabnikpodatki.City</p>
+                        <td style="width:20%">
+                            <p><b>Tel:</b> @item.uporabnikpodatki.PhoneNumber</p>
+                            <p><b>Lokacija:</b> @item.uporabnikpodatki.City</p>
+                        </td>
 
-                                    </div>
-                                </div>
-                                <!--
-                                <div class="col-md-12">
-                                    <div class="card-footer ">
-                                        <p class="card-text">
-                                            <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="item.Id">
-                                                <i class="bi bi-eye-fill"></i> Show Details
-                                            </a>
-                                            <a class="btn btn-success text-white ((DateTime.Now > item.EndDate) ? "disabled" : "")"
-                                           asp-controller="Orders"
-                                           asp-action="AddItemToShoppingCart"
-                                           asp-route-id="item.Id">
-                                                <i class="bi bi-cart-plus"></i> Add to Cart (Price item.Price.ToString("c"))
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                                -->
-                            </div>
-                        </div>
-                    </div>
-                }
-            </tbody>
-        </table>
+                        <th rowspan="3" class="cena"><h2>@item.oblacilapodatki.cena €</h2></th>
+                    </tr>
+                </table>
+
+            </div>
+        }
     </div>
 </div>
